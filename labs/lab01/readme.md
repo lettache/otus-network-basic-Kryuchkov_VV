@@ -121,6 +121,13 @@ show interface vlan 1
 ```
 ![изображение](https://user-images.githubusercontent.com/84719218/154058682-9d6f4c35-bc66-4833-bec2-ebed48a3113e.png)
 
+```
+C:\> ping 192.168.1.10 
+```
+
+```
+C:\> ping 192.168.1.2
+```
 
 
 ![изображение](https://user-images.githubusercontent.com/84719218/154058881-85b1d14a-8592-4c4d-960d-53a3cf7f2176.png)
