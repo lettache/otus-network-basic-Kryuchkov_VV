@@ -82,8 +82,18 @@ end
 conf t
 ip default-getaway 192.168.1.1
 ```
-   
-   г) Настройка IP-адреса на компьютере PC-A.
+
+   г) Изменение доступа к административным интерфейсам на vlan 99
+
+```
+conf t
+interface FastEthernet 0/24
+switchport access vlan 99
+```
+(аналогично выполненна для других интерфейсов GigabitEthernet0/1 и GigabitEthernet0/2
+
+
+   д) Настройка IP-адреса на компьютере PC-A.
    
 ```
 1)	Перейти в Панель управления. (Control Panel)
