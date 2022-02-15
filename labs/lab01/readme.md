@@ -114,4 +114,19 @@ show run
 ![изображение](https://user-images.githubusercontent.com/84719218/154054961-19d73a26-5529-46fc-b912-e8a55d0d01fd.png)
 ![изображение](https://user-images.githubusercontent.com/84719218/154054975-5670163a-7dcf-431c-9fbd-76f5e812de1e.png)
 
+Проверка параметров Vlan 1
+
+```
+show interface vlan 1
+```
+![изображение](https://user-images.githubusercontent.com/84719218/154058682-9d6f4c35-bc66-4833-bec2-ebed48a3113e.png)
+
+
+
+![изображение](https://user-images.githubusercontent.com/84719218/154058881-85b1d14a-8592-4c4d-960d-53a3cf7f2176.png)
+![изображение](https://user-images.githubusercontent.com/84719218/154058949-8d693475-aa73-45ba-a087-5ca56f2756e8.png)
+
+
+
+
 
