@@ -60,7 +60,7 @@ login
 end
 ```
 
-  б) Настройка виртальных сессий
+  б) Настройка виртуальных сессий
 
 ```
 conf t
@@ -116,7 +116,7 @@ show run
 
 ![изображение](https://user-images.githubusercontent.com/84719218/154054975-5670163a-7dcf-431c-9fbd-76f5e812de1e.png)
 
-Проверка параметров Vlan 1
+Проверка параметров vlan 1
 
 ```
 show interface vlan 1
