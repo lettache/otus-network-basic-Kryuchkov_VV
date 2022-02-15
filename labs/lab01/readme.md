@@ -54,19 +54,28 @@ banner motd # Unauthorized access is strictly prohibited. #
 
 ```
 line console 0
-line con 0
 logging synhronous
 password cisco
 login
 end
 ```
 
-  б) Назначение IP адреса 
+  б) Настройка виртальных сессий
 
+```
+conf t
+line vty 0 4
+enable secret class
+line vty 0 4
+transport input ssh
+end
+```
+
+  в) Настройка IP-адреса интерфейсу SVI
+  
 ```
 
 ```
-
 1. enable
 2. show running-config
 3. show interface f0/6
