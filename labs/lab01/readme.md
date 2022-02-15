@@ -30,6 +30,43 @@
 
 **Решение:**
 
+**1. Создание сети и проверка настроек коммутатора по умолчанию**
+
+```
+enable
+show running-config
+show interface f0/6
+show flash
+```
+
+**2. Настройка базовых параметров сетевых устройств**
+
+```
+conf t
+no ip domain-lookup
+hostname S1
+service password-encryption
+enable secret class
+banner motd # Unauthorized access is strictly prohibited. #
+```
+
+  а) Настройка порта консоли
+
+```
+line console 0
+line con 0
+logging synhronous
+password cisco
+login
+end
+```
+
+  б) Назначение IP адреса 
+
+```
+
+```
+
 1. enable
 2. show running-config
 3. show interface f0/6
