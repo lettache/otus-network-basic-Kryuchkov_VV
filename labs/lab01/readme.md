@@ -82,35 +82,26 @@ end
 conf t
 ip default-getaway 192.168.1.1
 ```
+   
+   г) Настройка IP-адреса на компьютере PC-A.
+   
+```
+1)	Перейти в Панель управления. (Control Panel)
+2)	В представлении «Категория» выбрать « Просмотр состояния сети и задач».
+3)	Щелкнуть Изменение параметров адаптера на левой панели.
+4)	Щелкнуть правой кнопкой мыши интерфейс Ethernet и выберать «Свойства» .
+5)	Выберать Протокол Интернета версии 4 (TCP/IPv4) > Свойства.
+6)	Выберать Использовать следующий IP-адрес и ввести IP-адрес 192.168.1.10 и маску подсети 255.255.255.0  и нажать ОК.
+
+```
+
+**3. Проверка сетевых подключений**
+
+```
+show run
+```
+![изображение](https://user-images.githubusercontent.com/84719218/154054938-1d8d9e2b-8111-470b-824f-f7b91d100643.png)
+![изображение](https://user-images.githubusercontent.com/84719218/154054961-19d73a26-5529-46fc-b912-e8a55d0d01fd.png)
+![изображение](https://user-images.githubusercontent.com/84719218/154054975-5670163a-7dcf-431c-9fbd-76f5e812de1e.png)
 
 
-
-1. enable
-2. show running-config
-3. show interface f0/6
-4. ![изображение](https://user-images.githubusercontent.com/84719218/153824640-cba0117f-87e1-4a8d-81fa-e700a1a3928a.png)
-5. show flash
-6. dir flash
-7. conf t
-8. line con 0
-9. logging synhronous
-10. password cisco
-11. login
-12. end
-13. conf t
-14. no ip domain-lookup
-15. hostname s1
-16. enable secret class
-17. service password-encryption
-18. banner motd # Unauthorized access is strictly prohibited. #
-19. line vty 0 4
-20. transport input ssh
-21. intaerface vlan 1
-22. ip address 192.168.1.2 255.255.255.0
-23. no shutdown
-24. end
-25. conf t
-26. line con 0
-27. transport output telnet
-28. end
-29. show run
