@@ -71,11 +71,20 @@ transport input ssh
 end
 ```
 
-  в) Настройка IP-адреса интерфейсу SVI
+  в) Назначание IP-адреса интерфейса SVI
   
 ```
-
+conf t
+interface vlan 1
+ip address 192.168.1.2 255.255.255.0
+no shutdown
+end
+conf t
+ip default-getaway 192.168.1.1
 ```
+
+
+
 1. enable
 2. show running-config
 3. show interface f0/6
