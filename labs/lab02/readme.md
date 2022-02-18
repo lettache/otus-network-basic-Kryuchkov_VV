@@ -93,8 +93,20 @@ enable secret class
 **Шаг 1. Записать МАС-адреса сетевых устройств**
 
 а) 
-
 ```
 ipconfig /all
 ```
+
+![изображение](https://user-images.githubusercontent.com/84719218/154662654-88820467-517a-4c85-8d62-b5efe850f801.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/154662761-c096cd79-1ea9-4da6-9da8-05f7e726a61f.png)
+
+```
+show interface F0/1
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/154663560-e5a1cfba-45d6-4951-9a86-a3f90b9b2900.png)
+
+
+![изображение](https://user-images.githubusercontent.com/84719218/154663444-801cbc49-9d8e-49bd-9b9c-1ae591c8ee5e.png)
 
