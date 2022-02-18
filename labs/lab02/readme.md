@@ -101,7 +101,9 @@ ipconfig /all
 
 ![изображение](https://user-images.githubusercontent.com/84719218/154662761-c096cd79-1ea9-4da6-9da8-05f7e726a61f.png)
 
+b)
 ```
+en
 show interface F0/1
 ```
 
@@ -109,4 +111,21 @@ show interface F0/1
 
 
 ![изображение](https://user-images.githubusercontent.com/84719218/154663444-801cbc49-9d8e-49bd-9b9c-1ae591c8ee5e.png)
+
+**Шаг 2. Просмотреть таблицу МАС-адресов коммутатора**
+
+a)
+```
+en
+```
+
+b)
+```
+show mac address-table
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/154666479-5c35934e-baba-40f4-ad24-4f0d89599522.png)
+
+
+
 
