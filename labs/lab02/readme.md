@@ -45,6 +45,37 @@ reload
 
 **Шаг 4. Настроить базовые параметры каждого коммутатора**
 
+а) Настроить имена устройств в соответствии с топологией
+
+```
+en
+conf t
+hostname S1
+```
+
+б) Настроить IP-адреса, как указано в таблице адресации.
+
+```
+conf t
+interface vlan 1
+ip address 192.168.1.11 255.255.255.0
+no shutdown
+end
+```
+
+c)	Назначьте cisco в качестве паролей консоли и VTY.
+
+```
+line console 0
+password cisco
+login
+end
 ```
 
 ```
+conf t
+line vty 0 4
+enable secret cisco
+end
+```
+
