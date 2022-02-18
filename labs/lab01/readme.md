@@ -46,7 +46,7 @@ conf t
 no ip domain-lookup
 hostname S1
 service password-encryption
-enable secret class
+enable secret cisco
 banner motd # Unauthorized access is strictly prohibited. #
 ```
 
@@ -55,7 +55,7 @@ banner motd # Unauthorized access is strictly prohibited. #
 ```
 line console 0
 logging synhronous
-password cisco
+password class
 login
 end
 ```
