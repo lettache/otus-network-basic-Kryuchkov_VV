@@ -124,8 +124,53 @@ b)
 show mac address-table
 ```
 
-![изображение](https://user-images.githubusercontent.com/84719218/154666479-5c35934e-baba-40f4-ad24-4f0d89599522.png)
+![изображение](https://user-images.githubusercontent.com/84719218/154667188-be12f99f-e6d6-41c1-b5d3-fc4e2542a7aa.png)
 
+**Шаг 3. Очистить таблицу МАС-адресов коммутатора S2 и снова отобразить таблицу МАС-адресов**
 
+а) 
+```
+en
+clear mac address-table dynamic
+```
 
+b)
+```
+show mac address-table
+```
 
+![изображение](https://user-images.githubusercontent.com/84719218/154667658-99da8390-4d86-44d6-9131-8f60189b64ad.png)
+
+**Шаг 4. С компьютера PC-B отправьте эхо-запросы устройствам в сети и просмотрите таблицу МАС-адресов коммутатора**
+
+a)
+```
+arp -a
+```
+![изображение](https://user-images.githubusercontent.com/84719218/154668150-0b62da07-15f6-45cd-8844-ba631280e2bf.png)
+
+b)
+```
+ping 192.168.1.1
+ping 192.168.1.11
+ping 192.168.1.12
+```
+![изображение](https://user-images.githubusercontent.com/84719218/154668544-11698269-e3f2-4d59-b9d4-88b81cdc5751.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/154668656-b99b59c9-449c-47ec-a98c-cd035ff4a05b.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/154668758-366053b5-3f1d-43fd-84f9-f9b1944cfb28.png)
+
+c)
+
+```
+show mac address-table
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/154669014-35a109cd-3edd-4603-9ac3-96e047b094d8.png)
+
+```
+arp -a
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/154669186-5d6f13c1-f9d8-42b9-bec1-cd7ccc329280.png)
