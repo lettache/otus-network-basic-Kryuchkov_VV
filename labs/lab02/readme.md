@@ -76,6 +76,12 @@ end
 conf t
 line vty 0 4
 enable secret cisco
+line vty 0 4
+password cisco
+login
+end
+line vty 0 4
+transport input ssh
 end
 ```
 
