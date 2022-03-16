@@ -42,7 +42,6 @@ reload
 en
 conf t
 no ip domain-lookup
-hostname R1
 enable secret class
 ```
 
@@ -91,6 +90,47 @@ copy running-config startup-config
 
 Шаг 1. Настроить аутентификацию устройств.
 
+```
+conf t
+hostname R1
+ip domain-name example.com
+```
+
+Шаг 2. Создать ключ шифрования с указанием его длины.
+
+```
+crypto key generate rsa
+2048
+```
+
+Шаг 3. Создать имя пользователя в локальной базе учетных записей.
+
+```
+conf t
+username admin privilege 15 password Adm1nP@55
+```
+
+Шаг 4. Активировать протокол SSH на линиях VTY.
+
+a)
+```
+line vty 0 4
+transport input ssh
+transport innput telnet
+```
+
+b)
+```
+login local
+```
+
+Шаг 5. Сохранить текущую конфигурацию в файл загрузочной конфигурации.
+
+```
+copy running-config startup-config
+```
+
+Шаг 6. Установить соединение с маршрутизатором по протоколу SSH.
 
 
 
