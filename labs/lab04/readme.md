@@ -111,13 +111,13 @@ exit
 ```
 
 b)
-
 ```
 show ipv6 interface brief
 ```
 
-c)
+![image](https://user-images.githubusercontent.com/84719218/158586385-f1effa58-5cf9-4663-8c2f-ce40ce9f547c.png)
 
+c)
 ```
 conf t
 interface gigabitEthernet 0/0/0
@@ -128,7 +128,6 @@ ipv6 add fe80::1 link-local
 ```
 
 d)
-
 ```
 show ipv6 interface brief
 ```
@@ -138,8 +137,28 @@ show ipv6 interface brief
 
 Шаг 2. Активировать IPv6-маршрутизацию на R1.
 
+a)
+```
+ipconfig
+```
+
+![image](https://user-images.githubusercontent.com/84719218/158586634-52517784-1006-44bc-b4f2-39db9a2d6cb9.png)
+
+b)
+```
+conf t
+IPv6 unicast-routing
+```
+
+c)
+```
+ipconfig
+```
+
+![image](https://user-images.githubusercontent.com/84719218/158587202-619d8dbf-0c82-4edc-af97-ed8012ed6a46.png)
 
 Шаг 3. Назначить IPv6-адреса интерфейсу управления (SVI) на S1.
+
 
 
 Шаг 4. Назначить компьютерам статические IPv6-адреса.
