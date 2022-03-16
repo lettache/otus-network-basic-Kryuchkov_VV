@@ -71,16 +71,6 @@ service password-encryption
 ```
 banner motd # Unauthorized access is strictly prohibited. #
 ```
-  
-```
-conf t
-interface vlan 1
-ip address 192.168.1.2 255.255.255.0
-no shutdown
-end
-conf t
-ip default-getaway 192.168.1.1
-```
 
 ```
 conf t
