@@ -132,6 +132,92 @@ copy running-config startup-config
 
 Шаг 6. Установить соединение с маршрутизатором по протоколу SSH.
 
+![image](https://user-images.githubusercontent.com/84719218/158615633-3b2eb75b-001d-4c7f-8cb9-f145ed1d559d.png)
+
+**Часть 3. Настройка коммутатора для доступа по протоколу SSH**
+
+Шаг 1. Настройка основных параметры коммутатора.
+
+```
+en
+conf t
+no ip domain-lookup
+enable secret class
+```
+
+```
+line console 0
+logging synhronous
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+```
+
+```
+service password-encryption
+```
+
+```
+banner motd # Unauthorized access is strictly prohibited. #
+```
+
+```
+interface vlan 1
+ip address 192.168.1.11 255.255.255.0
+no shutdown
+end
+```
+
+```
+copy running-config startup-config
+```
+
+Шаг 2. Настройте коммутатор для соединения по протоколу SSH.
+
+a)
+```
+conf t
+hostname S1
+```
+
+b)
+```
+ip domain-name example.com
+```
+
+c)
+```
+crypto key generate rsa
+2048
+```
+
+d)
+```
+conf t
+username admin privilege 15 password Adm1nP@55
+```
+
+```
+line vty 0 4
+transport input ssh
+transport innput telnet
+```
+
+```
+login local
+```
+
+Шаг 3. Установить соединение с коммутатором по протоколу SSH.
+
+![image](https://user-images.githubusercontent.com/84719218/158619675-2122e992-54f0-4429-88aa-6d06520fac83.png)
+
+**Часть 4. Настройка протокола SSH с использованием интерфейса командной строки (CLI) коммутатора**
 
 
 
