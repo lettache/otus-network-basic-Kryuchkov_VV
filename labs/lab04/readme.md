@@ -62,6 +62,12 @@ enable secret class
 Шаг 2. Настроить коммутатор.
 
 ```
+conf t
+sdm prefer dual-ipv4-and-ipv6 default 
+reload
+```
+
+```
 en
 conf t
 no ip domain-lookup
@@ -155,11 +161,28 @@ c)
 ipconfig
 ```
 
-![image](https://user-images.githubusercontent.com/84719218/158587202-619d8dbf-0c82-4edc-af97-ed8012ed6a46.png)
+![image](https://user-images.githubusercontent.com/84719218/158590994-3f8e5a54-0154-4df9-973c-feed09ffb286.png)
 
 Шаг 3. Назначить IPv6-адреса интерфейсу управления (SVI) на S1.
 
+a)
+```
+conf t
+interface vlan1
+ipv6 address 2001:db8:acad:1::b/64
+no shutdown
+exit
+```
+```
+interface vlan1
+ipv6 add fe80::1 link-local
+```
 
+b)
+```
+show ipv6 interface vlan 1
+```
+![image](https://user-images.githubusercontent.com/84719218/158593822-10369d71-de8f-44c9-82ec-8eabb84fd378.png)
 
 Шаг 4. Назначить компьютерам статические IPv6-адреса.
 
