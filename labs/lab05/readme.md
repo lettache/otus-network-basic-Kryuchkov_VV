@@ -38,8 +38,6 @@ reload
 
 Шаг 3. Настроить маршрутизатор.
 
-**2. Настройка базовых параметров сетевых устройств**
-
 ```
 en
 conf t
@@ -60,11 +58,9 @@ end
 conf t
 line vty 0 4
 enable secret cisco
-end
 ```
 
 ```
-conf t
 service password-encryption
 ```
 
@@ -73,16 +69,27 @@ banner motd # Unauthorized access is strictly prohibited. #
 ```
 
 ```
-conf t
 interface gigabitEthernet 0/0/1
 ip address 192.168.1.1 255.255.255.0
 no shutdown
-exit
+end
 ```
 
 ```
 copy running-config startup-config
 ```
+
+Шаг 4. Настройка компьютер PC-A.
+
+![image](https://user-images.githubusercontent.com/84719218/158607709-f666eb4e-2a58-4c5b-a685-d7410090fb83.png)
+
+Шаг 5. Проверить подключение к сети.
+
+![image](https://user-images.githubusercontent.com/84719218/158608029-c1d369fa-a7f5-45a7-a8b7-e2c6dc00e0ae.png)
+
+**Часть 2. Настроить маршрутизатор для доступа по протоколу SSH**
+
+Шаг 1. Настроить аутентификацию устройств.
 
 
 
