@@ -186,6 +186,21 @@ show ipv6 interface vlan 1
 
 Шаг 4. Назначить компьютерам статические IPv6-адреса.
 
+![image](https://user-images.githubusercontent.com/84719218/158595435-81b7fead-fe63-438e-9a69-4bf6d23fcdc6.png)
+
+![image](https://user-images.githubusercontent.com/84719218/158595502-6af5407a-310b-470a-be61-57476e4a4df8.png)
+
+Часть 3. Проверка сквозного подключения
+
+![image](https://user-images.githubusercontent.com/84719218/158595820-6f4185d7-41b2-438c-b75f-6e18dd267d1b.png)
+
+![image](https://user-images.githubusercontent.com/84719218/158596524-4d228833-1c5b-4b3f-8bac-0daf5f38747d.png)
+
+![image](https://user-images.githubusercontent.com/84719218/158596685-46c0c66c-d49e-4789-92bc-49ae8bde5f01.png)
+
+![image](https://user-images.githubusercontent.com/84719218/158596916-f196e2f1-85ed-4fc3-92c3-cdd5bdacf402.png)
+
+
 
 
 
