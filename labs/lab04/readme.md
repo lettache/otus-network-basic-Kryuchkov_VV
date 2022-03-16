@@ -98,6 +98,12 @@ conf t
 enable secret class
 ```
 
+```
+conf t
+interface FastEthernet 0/24
+switchport access vlan 99
+```
+
 Часть 2. Ручная настройка IPv6-адресов
 
 Шаг 1. Назначить IPv6-адреса интерфейсам Ethernet на R1.
