@@ -27,11 +27,59 @@
 
 Часть 1. Настройка топологии и конфигурация основных параметров маршрутизатора и коммутатора
 
-Шаг 1. Настройте маршрутизатор.
+Шаг 1. Настроить маршрутизатор.
 
+а) Настройка имени устройств в соответствии с топологией
 
+```
+en
+conf t
+hostname R1
+```
 
-Шаг 2. Настройте коммутатор.
+```
+line console 0
+password cisco
+login
+end
+```
 
+```
+conf t
+line vty 0 4
+enable secret cisco
+line vty 0 4
+login
+end
+line vty 0 4
+transport input ssh
+end
+```
 
+Шаг 2. Настроить коммутатор.
+
+```
+en
+conf t
+hostname S1
+```
+
+```
+line console 0
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+line vty 0 4
+login
+end
+line vty 0 4
+transport input ssh
+end
+```
 
