@@ -32,11 +32,13 @@
 ```
 en
 conf t
+no ip domain-lookup
 hostname R1
 ```
 
 ```
 line console 0
+logging synhronous
 password cisco
 login
 end
@@ -48,8 +50,6 @@ line vty 0 4
 enable secret cisco
 line vty 0 4
 login
-end
-line vty 0 4
 transport input ssh
 end
 ```
@@ -64,11 +64,13 @@ enable secret class
 ```
 en
 conf t
+no ip domain-lookup
 hostname S1
 ```
 
 ```
 line console 0
+logging synhronous
 password cisco
 login
 end
@@ -78,10 +80,9 @@ end
 conf t
 line vty 0 4
 enable secret cisco
+conf t
 line vty 0 4
 login
-end
-line vty 0 4
 transport input ssh
 end
 ```
@@ -90,4 +91,8 @@ end
 conf t
 enable secret class
 ```
+
+Часть 2. Ручная настройка IPv6-адресов
+
+
 
