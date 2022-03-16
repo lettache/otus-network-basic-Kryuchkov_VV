@@ -56,6 +56,11 @@ transport input ssh
 end
 ```
 
+```
+conf t
+enable secret class
+```
+
 Шаг 2. Настроить коммутатор.
 
 ```
@@ -81,5 +86,10 @@ end
 line vty 0 4
 transport input ssh
 end
+```
+
+```
+conf t
+enable secret class
 ```
 
