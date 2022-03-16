@@ -94,5 +94,58 @@ enable secret class
 
 Часть 2. Ручная настройка IPv6-адресов
 
+Шаг 1. Назначить IPv6-адреса интерфейсам Ethernet на R1.
+
+a) 
+```
+conf t
+interface gigabitEthernet 0/0/0
+ipv6 address 2001:db8:acad:a::1/64
+no shutdown
+exit
+conf t
+interface gigabitEthernet 0/0/1
+ipv6 address 2001:db8:acad:1::1/64
+no shutdown
+exit
+```
+
+b)
+
+```
+show ipv6 interface brief
+```
+
+c)
+
+```
+conf t
+interface gigabitEthernet 0/0/0
+ipv6 add fe80::1 link-local
+exit
+interface gigabitEthernet 0/0/1
+ipv6 add fe80::1 link-local
+```
+
+d)
+
+```
+show ipv6 interface brief
+```
+
+![image](https://user-images.githubusercontent.com/84719218/158585949-a6bf15bb-a1bc-4ae4-9a2d-2a227d981eda.png)
+
+
+Шаг 2. Активировать IPv6-маршрутизацию на R1.
+
+
+Шаг 3. Назначить IPv6-адреса интерфейсу управления (SVI) на S1.
+
+
+Шаг 4. Назначить компьютерам статические IPv6-адреса.
+
+
+
+
 
 
