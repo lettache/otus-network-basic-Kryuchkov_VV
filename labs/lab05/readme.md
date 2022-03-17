@@ -221,3 +221,20 @@ login local
 
 Шаг 1. Посмотреть доступные параметры для клиента SSH в Cisco IOS.
 
+```
+ssh?
+```
+
+Шаг 2. Установить с коммутатора S1 соединение с маршрутизатором R1 по протоколу SSH.
+
+```
+ssh -l admin 192.168.1.1
+```
+
+![image](https://user-images.githubusercontent.com/84719218/158746058-99dc551b-9b98-4c01-b483-2ed425b7d344.png)
+
+```
+exit
+```
+
+![image](https://user-images.githubusercontent.com/84719218/158746260-40ef7e15-a580-43c0-bff4-c3d79dca4d6c.png)
