@@ -146,6 +146,38 @@ copy running-config startup-config
 a)
 
 ```
+conf t
+vlan 10
+name Management
+exit
+```
 
 ```
+conf t
+vlan 20
+name Sales
+exit
+```
+
+```
+conf t
+vlan 30
+name Operations
+exit
+```
+
+```
+conf t
+vlan 999
+name Parking_Lot
+exit
+```
+
+```
+conf t
+vlan 1000
+name Native
+exit
+```
+
 
