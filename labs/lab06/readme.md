@@ -43,5 +43,102 @@
 
 **Решение:**
 
+**Часть 1. Создание сети и настройка основных параметров устройства**
+
+Шаг 1. Создать сеть согласно топологии.
+
+![image](https://user-images.githubusercontent.com/84719218/159429550-6d271547-e8f9-4a47-8aa9-cf80bcf4dd41.png)
+
+Шаг 2. Настроить базовые параметры для маршрутизатора.
+
+```
+en
+conf t
+hostname R1
+no ip domain-lookup
+enable secret class
+```
+
+```
+line console 0
+logging synhronous
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+```
+
+```
+service password-encryption
+```
+
+```
+banner motd # Unauthorized access is strictly prohibited. #
+end
+```
+
+```
+clock set 10:48:00 22 mar 2022
+```
+
+```
+copy running-config startup-config
+```
+
+Шаг 3. Настроить базовые параметры каждого коммутатора.
+
+```
+en
+conf t
+hostname S1
+no ip domain-lookup
+enable secret class
+```
+
+```
+line console 0
+logging synhronous
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+```
+
+```
+service password-encryption
+```
+
+```
+banner motd # Unauthorized access is strictly prohibited. #
+end
+```
+
+```
+clock set 11:05:00 22 mar 2022
+```
+
+```
+copy running-config startup-config
+```
+
+(Аналогично выполненна настройка для второго коммутатора S2)
+
+Шаг 4. Настройка узлов ПК.
+
+![image](https://user-images.githubusercontent.com/84719218/159435774-a2304aa3-fc18-499b-9676-151c48fd0f84.png)
+
+![image](https://user-images.githubusercontent.com/84719218/159435923-b896fcc5-4528-480c-b8a3-6b60c5d0960e.png)
+
+
 
 
