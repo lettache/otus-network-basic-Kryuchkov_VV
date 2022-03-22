@@ -201,8 +201,8 @@ c)
 ```
 conf t
 int range F0/2-4, F0/7-24, G0/1-2
-swithport mode access
-switshport access vlan 999
+switchport mode access
+switchport access vlan 999
 ex
 int vlan 999
 shutdown
@@ -211,8 +211,8 @@ shutdown
 ```
 conf t
 int range F0/2-17, F0/19-24, G0/1-2
-swithport mode access
-switshport access vlan 999
+switchport mode access
+switchport access vlan 999
 ex
 int vlan 999
 shutdown
@@ -220,9 +220,55 @@ shutdown
 
 Шаг 2. Назначить сети VLAN соответствующим интерфейсам коммутатора.
 
+a)
+
+```
+int f0/6
+switchport mode access
+switchport access vlan 20
+ex
 ```
 
 ```
+int f0/18
+switchport mode access
+switchport access vlan 30
+ex
+```
+
+b)
+
+```
+end
+show vlan
+```
+
+**Часть 3. Конфигурация магистрального канала стандарта 802.1Q между коммутаторами**
+
+Шаг 1. Вручную настроить магистральный интерфейс F0/1 на коммутаторах S1 и S2.
+
+a)
+
+```
+conf t
+int fa0/1
+switchport mode trunk
+```
+
+b)
+
+```
+switchport trunk native vlan 1000
+switchport trunk allowed vlan 10,20,30,1000
+end
+```
+
+c)
+
+```
+show int trunk
+```
+(Аналогичные комманды для другого коммутатора S2)
 
 
 
