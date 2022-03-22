@@ -270,6 +270,116 @@ show int trunk
 ```
 (Аналогичные комманды для другого коммутатора S2)
 
+Шаг 2. Вручную настроить магистральный интерфейс F0/5 на коммутаторе S1.
 
+a)
 
+```
+conf t
+int fa0/5
+switchport mode trunk
+switchport trunk native vlan 1000
+switchport trunk allowed vlan 10,20,30,1000
+no shutdown
+end
+```
 
+b)
+
+```
+copy running-config startup-config
+```
+
+c)
+
+```
+show int trunk
+```
+
+**Часть 4. Настройка маршрутизации между сетями VLAN**
+
+Шаг 1. Настроить маршрутизатор.
+
+a)
+
+```
+conf t
+int g0/1
+no shutdown
+```
+
+b)
+
+```
+int g0/1.10
+encapsulation dot1Q 10
+ip add 192.168.10.1 255.255.255.0
+no shut
+ex
+```
+
+```
+int g0/1.20
+encapsulation dot1Q 20
+ip add 192.168.20.1 255.255.255.0
+no shut
+ex
+```
+
+```
+int g0/1.30
+encapsulation dot1Q 30
+ip add 192.168.30.1 255.255.255.0
+no shut
+ex
+```
+
+```
+int g0/1.1000
+encapsulation dot1Q 1000 native
+no shut
+end
+```
+
+```
+show int g0/1.1000
+```
+
+```
+show ip route
+```
+
+**Часть 5. Проверить, работает ли маршрутизация между VLAN**
+
+Шаг 1. Выполнить следующие тесты с PC-A.
+
+a)
+
+```
+ping 192.168.20.1
+```
+
+![image](https://user-images.githubusercontent.com/84719218/159489749-12230042-f5ec-4e02-933d-c7bdce8936f3.png)
+
+b)
+
+```
+ping 192.168.30.3
+```
+![image](https://user-images.githubusercontent.com/84719218/159490046-fd459bd6-4409-4cc6-b069-e4e34b813f9d.png)
+
+c)
+
+```
+ping 192.168.10.12
+```
+
+![image](https://user-images.githubusercontent.com/84719218/159490412-0a1ea27f-5687-4987-9ebf-5e339048d2ef.png)
+
+Шаг 2. Пройти следующий тест с PC-B
+
+```
+tracert 192.168.20.3
+```
+
+![image](https://user-images.githubusercontent.com/84719218/159490882-f2b81788-b43c-4287-8a20-7b9919f57b45.png)
