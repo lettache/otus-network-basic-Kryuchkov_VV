@@ -149,35 +149,81 @@ a)
 conf t
 vlan 10
 name Management
+no shutdown
 exit
 ```
 
 ```
-conf t
 vlan 20
 name Sales
+no shutdown
 exit
 ```
 
 ```
-conf t
 vlan 30
 name Operations
+no shutdown
 exit
 ```
 
 ```
-conf t
 vlan 999
 name Parking_Lot
+no shutdown
 exit
 ```
 
 ```
-conf t
 vlan 1000
 name Native
+no shutdown
 exit
 ```
+(Аналогичная настройка для второго коммутатора S2)
+
+b)
+
+```
+int vlan 10
+ip add 192.168.10.11 255.255.255.0
+ip default-gateway 192.168.10.1
+```
+
+```
+int vlan 10
+ip add 192.168.10.12 255.255.255.0
+ip default-gateway 192.168.10.1
+```
+
+c)
+
+```
+conf t
+int range F0/2-4, F0/7-24, G0/1-2
+swithport mode access
+switshport access vlan 999
+ex
+int vlan 999
+shutdown
+```
+
+```
+conf t
+int range F0/2-17, F0/19-24, G0/1-2
+swithport mode access
+switshport access vlan 999
+ex
+int vlan 999
+shutdown
+```
+
+Шаг 2. Назначить сети VLAN соответствующим интерфейсам коммутатора.
+
+```
+
+```
+
+
 
 
