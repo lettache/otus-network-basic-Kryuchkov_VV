@@ -139,6 +139,13 @@ copy running-config startup-config
 
 ![image](https://user-images.githubusercontent.com/84719218/159435923-b896fcc5-4528-480c-b8a3-6b60c5d0960e.png)
 
+**Часть 2. Создание сетей VLAN и назначение портов коммутатора**
 
+Шаг 1. Создать сети VLAN на коммутаторах.
 
+a)
+
+```
+
+```
 
