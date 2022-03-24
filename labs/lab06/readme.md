@@ -149,35 +149,30 @@ a)
 conf t
 vlan 10
 name Management
-no shutdown
 exit
 ```
 
 ```
 vlan 20
 name Sales
-no shutdown
 exit
 ```
 
 ```
 vlan 30
 name Operations
-no shutdown
 exit
 ```
 
 ```
 vlan 999
 name Parking_Lot
-no shutdown
 exit
 ```
 
 ```
 vlan 1000
 name Native
-no shutdown
 exit
 ```
 (Аналогичная настройка для второго коммутатора S2)
