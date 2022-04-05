@@ -68,7 +68,6 @@ service password-encryption
 
 ```
 banner motd # Unauthorized access is strictly prohibited. #
-end
 ```
 
 ```
@@ -83,4 +82,18 @@ copy running-config startup-config
 ```
 
 (Аналогично выполненна настройка для коммутаторов S2 и S3)
+
+Шаг 4:	Проверить связь.
+
+![изображение](https://user-images.githubusercontent.com/84719218/161697869-d172ae82-6059-428d-a71a-375e8415748c.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/161697922-492601c1-2371-4a98-8987-3862d48113bc.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/161698034-00c69bce-99ef-4a21-9f66-66859d4b1908.png)
+
+**Часть 2:	Определение корневого моста**
+
+
+
+
 
