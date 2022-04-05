@@ -26,5 +26,61 @@
 
 **Часть 1. Создание сети и настройка основных параметров устройства**
 
+Шаг 1. Создать сеть согласно топологии.
 
+![изображение](https://user-images.githubusercontent.com/84719218/161693608-51c7ccb5-36b0-4c60-8727-b24f1ef6fc15.png)
+
+Шаг 2:	Выполнить инициализацию и перезагрузку коммутаторов.
+
+```
+en
+reload
+```
+(Аналогично выполненна настройка для коммутаторов S2 и S3)
+
+Шаг 3:	Настройте базовые параметры каждого коммутатора.
+
+```
+en
+conf t
+no ip domain-lookup
+hostname S1
+enable secret class
+```
+
+```
+line console 0
+logging synhronous
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+```
+
+```
+service password-encryption
+```
+
+```
+banner motd # Unauthorized access is strictly prohibited. #
+end
+```
+
+```
+interface vlan 1
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+end
+```
+
+```
+copy running-config startup-config
+```
+
+(Аналогично выполненна настройка для коммутаторов S2 и S3)
 
