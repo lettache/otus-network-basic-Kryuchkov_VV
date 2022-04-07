@@ -98,8 +98,49 @@ copy running-config startup-config
 ```
 en
 conf t
+int range f0/1-24
+shutdown
+```
+(Аналогично выполненна настройка для коммутаторов S2 и S3)
+
+Шаг 2:	Настроить подключенные порты в качестве транковых.
 
 ```
+conf t
+int range f0/1-4
+switchport mode trunk
+end
+```
+(Аналогично выполненна настройка для коммутаторов S2 и S3)
+
+Шаг 3:	Включить порты F0/2 и F0/4 на всех коммутаторах.
+
+```
+conf t
+int f0/2
+no shutdown
+ex
+int f0/4
+no shutdown
+ex
+```
+(Аналогично выполненна настройка для коммутаторов S2 и S3)
+
+Шаг 4:	Отобразите данные протокола spanning-tree.
+
+```
+show spanning-tree
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/162141542-dcbb727c-a00c-4186-876c-6af75b1c68dd.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/162141803-e458d3c2-92df-4459-a707-930094e8dc7b.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/162141927-a44e608a-ae28-4222-a2f5-bd22919e42d3.png)
+
+
+
+
 
 
 
