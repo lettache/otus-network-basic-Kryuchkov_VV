@@ -117,16 +117,35 @@ banner motd # Unauthorized access is strictly prohibited. #
 ```
 
 ```
-int range f0/1-4
-shutdown
-int range f0/7-24
-shutdown
+IPv6 unicast-routing
 ```
 
 ```
 copy running-config startup-config
 ```
 
+(Аналогично выполненна настройка для маршрутизатора R2)
+
+Шаг 4. Настроить интерфейсы и маршрутизации для обоих маршрутизаторов.
+
+a) 
+
+```
+conf t
+int gig 0/0/0
+ipv6 add 2001:db8:acad:2::1/64
+ipv6 add fe80::1 link-local
+no sh
+ex
+int gig 0/0/1
+ipv6 add 2001:db8:acad:1::1/64
+ipv6 add fe80::1 link-local
+no sh
+```
+
+(Аналогично выполненна настройка для маршрутизатора R2)
+
+b)
 
 
 
