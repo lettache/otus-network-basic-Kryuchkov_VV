@@ -146,6 +146,105 @@ no sh
 (Аналогично выполненна настройка для маршрутизатора R2)
 
 b)
+```
+conf t
+ipv6 route 2001:db8:acad:2::2/64 gigabitEthernet 0/0/0
+copy running-config startup-config
+```
+(Аналогично выполненна настройка для маршрутизатора R2)
+
+**Часть 2. Проверить назначение адреса SLAAC от R1**
+
+```
+ipconfig
+```
+
+![image](https://user-images.githubusercontent.com/84719218/164465636-3d99f070-80df-4fc8-b27d-867569b943f4.png)
+
+**Часть 3. Настроить и проверить сервера DHCPv6 на R1**
+
+Шаг 1. Более подробно изучить конфигурацию PC-A.
+
+```
+ipconfig /all
+```
+
+![image](https://user-images.githubusercontent.com/84719218/164467068-b515e1f1-5cbc-4a80-afb3-4b10f28b1479.png)
+
+Шаг 2. Настройка R1 для предоставления DHCPv6 без состояния для PC-A.
+
+```
+conf t
+ipv6 dhcp pool R1-STATELESS
+dns-server 2001:db8:acad::254
+domain-name STATELESS.com
+```
+
+```
+ex
+interface g0/0/1
+ipv6 nd other-config-flag
+ipv6 dhcp server R1-STATELESS
+```
+
+```
+copy running-config startup-config
+```
+
+```
+ipconfig /renew
+ipconfig /all
+```
+
+![image](https://user-images.githubusercontent.com/84719218/164469063-ff20d90c-f7df-47b8-a43a-9491ac1c4ce8.png)
+
+**Часть 4. Настройка сервера DHCPv6 с сохранением состояния на R1**
+
+a)
+```
+conf t
+ipv6 dhcp pool R2-STATEFUL
+address prefix 2001:db8:acad:3:aaa::/80
+dns-server 2001:db8:acad::254
+domain-name STATEFUL.com
+```
+
+```
+interface g0/0/0
+ipv6 dhcp server R2-STATEFUL
+```
+
+**Часть 5. Настройка и проверка ретрансляции DHCPv6 на R2.**
+
+Шаг 1. Включить PC-B и проверить адрес SLAAC, который он генерирует.
+
+```
+ipconfig /all
+```
+
+![image](https://user-images.githubusercontent.com/84719218/164470741-7eecb8db-fb89-464d-8984-a86dc81accc5.png)
+
+Шаг 2. Настроить R2 в качестве агента DHCP-ретрансляции для локальной сети на G0/0/1.
+
+```
+conf t
+int g0/0/1
+ipv6 nd managed-config-flag
+ipv6 dhcp relay destination 2001:db8:acad:2::1 g0/0/0
+```
+
+```
+copy running-config startup-config
+```
+
+Шаг 3. Попытка получить адрес IPv6 из DHCPv6 на PC-B.
+
+```
+ipconfig /renew
+ipconfig /all
+```
+
+![image](https://user-images.githubusercontent.com/84719218/164472618-b94baa8d-5d1c-4d88-84e9-f204dbe75011.png)
 
 
 
