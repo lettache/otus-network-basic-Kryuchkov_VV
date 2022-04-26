@@ -15,8 +15,8 @@
 |               | G0/0/1.1000        | -                        | -               |                   |
 | R2            | G0/0/0             | 10.0.0.2                 | 255.255.255.252 | -                 |
 |               | G0/0/1             | 192.168.1.97             | 255.255.255.240 |                   |
-| S1            | VLAN 200           | 192.168.1.66             | 255.255.255.224 | 192.168.1.94      |
-| S2            | VLAN 1             |                          |                 |                   |
+| S1            | VLAN 200           | 192.168.1.66             | 255.255.255.224 | 192.168.1.1       |
+| S2            | VLAN 1             | 192.168.1.67             | 255.255.255.224 | 192.168.1.1       |
 | PC-A          | NIC                | DHCP                     | DHCP            | DHCP              |
 | PC-B          | NIC                | DHCP                     | DHCP            | DHCP              |
 
@@ -28,7 +28,7 @@
 | 100           | Customers          | S1: F0/6                    |
 | 200           | Management         | S1: VLAN 200                |
 | 999           | Parking_Lot        | S1: F0/1-4, F0/7-24, G0/1-2 |
-| 1000          | Own                | -                           |
+| 1000          | Native             | -                           |
 
 **Задачи**
 
@@ -217,6 +217,125 @@ copy running-config startup-config
 
 Шаг 7.	Создать сети VLAN на коммутаторе S1.
 
+a)
+
+```
+vlan 100
+name Customers
+ex
+```
+
+```
+vlan 200
+name Management
+ex
+```
+
+```
+vlan 999
+name Parking_Lot
+ex
+```
+
+```
+vlan 1000
+name Native
+ex
+```
+
+b)
+
+```
+int vlan 200
+ip add 192.168.1.66 255.255.255.224
+ip default-gateway 192.168.1.94
+```
+
+c)
+ 
+```
+int vlan 1
+no sh
+ip add 192.168.1.67 255.255.255.224
+ip default-gateway 192.168.1.94
+``` 
+
+d)
+
+```
+conf t
+int range F0/2-4, F0/7-24
+switchport mode access
+switchport access vlan 999
+ex
+int vlan 999
+sh
+```
+
+```
+int range f0/1-4, f0/6-17, f0/19-24
+sh
+```
+
+Шаг 8.	Назначить сети VLAN соответствующим интерфейсам коммутатора.
+
+a)
+
+```
+int f0/6
+switchport mode access
+switchport access vlan 100
+ex
+```
+
+```
+int range f0/1-4, f0/7-24, g0/1-2
+switchport mode access
+switchport access vlan 999
+ex
+```
+
+```
+int f0/18
+switchport mode access
+switchport access vlan 1
+end
+```
+
+b)
+
+```
+sh vlan
+```
+
+Шаг 9.	Вручную настройте интерфейс S1 F0/5 в качестве транка 802.1Q.
+
+```
+conf t
+int fa0/5
+switchport mode trunk
+```
+
+```
+switchport trunk native vlan 1000
+```
+
+```
+switchport trunk allowed vlan 100,200,1000
+end
+```
+
+```
+copy running-config startup-config
+```
+
+```
+sh int trunk
+```
+
+**Часть 2.	Настроить и проверить два сервера DHCPv4 на R1**
+
+Шаг 1.	Настроить R1 с пулами DHCPv4 для двух поддерживаемых подсетей.
 
 
 
