@@ -83,12 +83,13 @@ ex
 ```
 
 ```
-copy running-config startup-config
+clock set 12:04:00 26 apr 2022
 ```
 
 ```
-clock set 12:04:00 26 apr 2022
+copy running-config startup-config
 ```
+
 (Аналогично выполненна настройка для маршрутизатора R2)
 
 Шаг 4.	Настроить маршрутизации между сетями VLAN на маршрутизаторе R1
@@ -171,6 +172,50 @@ e)
 ```
 copy running-config startup-config
 ```
+
+Шаг 6.	Настроить базовые параметры каждого коммутатора.
+
+```
+en
+conf t
+hostname S1
+no ip domain-lookup
+enable secret class
+```
+
+```
+line console 0
+logging synhronous
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+```
+
+```
+service password-encryption
+```
+
+```
+banner motd # Unauthorized access is strictly prohibited. #
+ex
+```
+
+```
+clock set 16:35:00 26 apr 2022
+```
+
+```
+copy running-config startup-config
+```
+(Аналогично выполненна настройка для коммутатора R2)
+
+Шаг 7.	Создать сети VLAN на коммутаторе S1.
 
 
 
