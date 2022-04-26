@@ -42,6 +42,80 @@
 
 **Часть 1.	Создание сети и настройка основных параметров устройства**
 
+Шаг 1.	Создать схему адресации
+
+Шаг 2.	Создать сеть согласно топологии.
+
+![image](https://user-images.githubusercontent.com/84719218/165263557-62f5d355-0ef8-4013-ae40-3c9dede31060.png)
+
+Шаг 3.	Произвести базовую настройку маршрутизаторов.
+
+
+```
+en
+conf t
+hostname R1
+no ip domain-lookup
+enable secret class
+```
+
+```
+line console 0
+logging synhronous
+password cisco
+login
+end
+```
+
+```
+conf t
+line vty 0 4
+enable secret cisco
+```
+
+```
+service password-encryption
+```
+
+```
+banner motd # Unauthorized access is strictly prohibited. #
+ex
+```
+
+```
+copy running-config startup-config
+```
+
+```
+clock set 12:04:00 26 apr 2022
+```
+(Аналогично выполненна настройка для маршрутизатора R2)
+
+Шаг 4.	Настроить маршрутизации между сетями VLAN на маршрутизаторе R1
+
+a)
+
+```
+conf t
+int g0/0/1
+no sh
+```
+
+b)
+
+```
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
