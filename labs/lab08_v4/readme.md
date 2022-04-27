@@ -357,8 +357,58 @@ default-router 192.168.1.1
 lease 2_12_30
 ```
 
+Шаг 2.	Сохраните конфигурацию.
 
+```
+copy running-config startup-config
+```
 
+Шаг 3.	Проверка конфигурации сервера DHCPv4
+
+```
+show ip dhcp pool 
+```
+
+```
+show ip dhcp bindings 
+```
+
+```
+show ip dhcp server statistics 
+```
+
+Шаг 4.	Попытка получить IP-адрес от DHCP на PC-A
+
+```
+ipconfig /all 
+ipconfig
+```
+
+Часть 3.	Настройка и проверка DHCP-ретрансляции на R2
+
+Шаг 1.	Настроить R2 в качестве агента DHCP-ретрансляции для локальной сети на G0/0/1
+
+```
+conf t
+int g0/0/1
+ip helper-address 10.0.0.1
+```
+
+```
+copy running-config startup-config
+```
+
+Шаг 2.	Попытка получить IP-адрес от DHCP на PC-B
+
+```
+ipconfig /all 
+ipconfig
+```
+
+```
+show ip dhcp binding
+show ip dhcp server statistics 
+```
 
 
 
