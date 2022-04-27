@@ -199,16 +199,114 @@ a)
 
 | Функция                                    | Настройка по умолчанию   | 
 | :------------------------------------------|:------------------------ | 
-| Защита портов                              |                          |
-| Максимальное количество записей MAC-адресов|                          |
-| Режим проверки на нарушение безопасности   |                          |
-| Aging Time                                 |                          |
-| Aging Type                                 |                          |
-| Secure Static Address Aging                |                          |
-| Sticky MAC Address                         |                          |
+| Защита портов                              | Disabled                 |
+| Максимальное количество записей MAC-адресов| 1                        |
+| Режим проверки на нарушение безопасности   | Shutdown                 |
+| Aging Time                                 | 0 mins                   |
+| Aging Type                                 | Absolute                 |
+| Secure Static Address Aging                | Disabled                 |
+| Sticky MAC Address                         | 0                        |
 
+b)
 
+```
+conf t
+int f0/6
+switchport port-security
+switchport port-security maximum 3
+switchport port-security violation restrict
+switchport port-security aging time 60
+switchport port-security aging-type inactivity
+```
 
+c)
+
+```
+show port-security interface f0/6
+```
+
+```
+show port-security address
+```
+
+d)
+
+```
+conf t
+int f0/18
+switchport port-security
+```
+
+e)
+
+```
+switchport port-security maximum 2
+switchport port-security violation protect
+switchport port-security aging time 60
+end
+```
+
+f)
+
+```
+show port-security interface f0/18
+```
+
+```
+show port-security address
+```
+
+Шаг 5. Реализовать безопасность DHCP snooping.
+
+a)
+```
+en
+conf t
+ip dhcp-snooping
+ip dhcp-snooping vlan 10
+```
+
+b)
+```
+int f0/1
+ip dhcp-snooping trust
+```
+
+c)
+```
+int f0/18
+ip dhcp-snooping limit rate 5
+```
+
+d)
+```
+show ip dhcp snooping
+```
+
+e)
+```
+ipconfig /release
+ipconfig /renew
+```
+
+f)
+```
+show ip dhcp snooping binding 
+```
+
+Шаг 6. Реализация PortFast и BPDU Guard
+
+a)
+```
+conf t
+int range f0/1, f0/5
+spanning-tree portfast
+```
+
+```
+conf t int f0/1
+spanning-tree portfast
+```
 
 
 
