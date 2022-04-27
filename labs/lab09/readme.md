@@ -308,8 +308,23 @@ conf t int f0/1
 spanning-tree portfast
 ```
 
+b)
+```
+int f0/6
+spanning-tree bpduguard enable
+ex
+```
 
+```
+int f0/18
+spanning-tree bpduguard enable
+end
+```
 
+c)
+```
+show spanning-tree interface f0/6 detail
+```
 
 
 
