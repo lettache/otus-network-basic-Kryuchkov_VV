@@ -79,6 +79,19 @@ name Management
 ```
 (Аналогично выполненна настройка для коммутатора S2)
 
+Шаг 2. Сконфигурировать SVI для VLAN 10.
+
+```
+conf t
+int vlan 10
+ip add 192.168.10.201 255.255.255.0
+no sh
+des Management
+ex
+```
+(Аналогично выполненна настройка для коммутатора S2)
+
+
 Шаг 3. Настроить VLAN 333 с именем Native на S1 и S2.
 
 ```
@@ -101,20 +114,96 @@ name ParkingLot
 
 Шаг 1. Релизация магистральных соединений 802.1Q.
 
+```
+conf t
+int f0/1
+switchport mode trunk
+switchport trunk native vlan 333
+switchport trunk allowed vlan 1,10,333,999
+ex
+```
+(Аналогично выполненна настройка для коммутатора S2)
+
+```
+show interface trunk
+```
+
+```
+conf t
+int f0/1
+switchport nonegotiate
+```
+
+```
+show interface int f0/1
+```
+(Аналогично выполненна настройка для коммутатора S2)
+
+Шаг 2. Настройка портов доступа
+
+a)
+
+```
+conf t
+int range f0/5-6
+switchport mode access
+switchport access vlan 10
+ex
+```
+
+b)
+
+```
+conf t
+int f0/18
+switchport mode access
+switchport access vlan 10
+ex
+```
+
+Шаг 3. Безопасность неиспользуемых портов коммутатора
+
+```
+conf t
+int range f0/2-4, f0/7-24, g0/1-2
+switchport mode access
+switchport access vlan 999
+ex
+int vlan 999
+sh
+ex
+```
+
+```
+conf t
+int range f0/2-17, f0/19-24, g0/1-2
+switchport mode access
+switchport access vlan 999
+ex
+int vlan 999
+sh
+ex
+```
+
+```
+show interfaces status
+```
+
+Шаг 4. Документирование и реализация функций безопасности порта.
+
+a)
 
 
+| Конфигурация безопасности порта по умолчанию          | 
+| :---------------------------------------------------- | 
 
-
-
-
-
-
-
-
-
-
-
-
+| Устройство                 | Интерфейс                | 
+| :--------------------------|:------------------------ | 
+| R1                         | G0/0/0                   |
+|                            | G0/0/1                   |
+|                            | G0/0/1.100               |
+|                            | G0/0/1.200               |
+|                            | G0/0/1.1000              |
 
 
 
