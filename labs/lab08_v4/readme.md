@@ -339,7 +339,17 @@ sh int trunk
 
 ```
 conf t
+ip dhcp excluded-address 192.168.1.1
 ip dhcp excluded-address 192.168.1.2
+ip dhcp excluded-address 192.168.1.3
+ip dhcp excluded-address 192.168.1.4
+ip dhcp excluded-address 192.168.1.5
+ip dhcp excluded-address 192.168.1.96
+ip dhcp excluded-address 192.168.1.97
+ip dhcp excluded-address 192.168.1.98
+ip dhcp excluded-address 192.168.1.99
+ip dhcp excluded-address 192.168.1.100
+
 ```
 (Аналогично для другой подсети и IP адресов)
 
