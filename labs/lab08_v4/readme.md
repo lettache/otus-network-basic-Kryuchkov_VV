@@ -351,7 +351,6 @@ ip dhcp excluded-address 192.168.1.99
 ip dhcp excluded-address 192.168.1.100
 
 ```
-(Аналогично для другой подсети и IP адресов)
 
 ```
 ip dhcp pool R1_Client_LAN
