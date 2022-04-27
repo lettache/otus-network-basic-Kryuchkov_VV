@@ -337,13 +337,25 @@ sh int trunk
 
 Шаг 1.	Настроить R1 с пулами DHCPv4 для двух поддерживаемых подсетей.
 
+```
+conf t
+ip dhcp excluded-address 192.168.1.2
+```
+(Аналогично для другой подсети и IP адресов)
 
+```
+ip dhcp pool R1_Client_LAN
+network 192.168.1.0 255.255.255.0
+domain-name CCNA-lab.com
+default-router 192.168.1.1
+lease 2_12_30
 
-
-
-
-
-
+ip dhcp pool R2_Client_LAN
+network 192.168.1.0 255.255.255.0
+domain-name CCNA-lab.com
+default-router 192.168.1.1
+lease 2_12_30
+```
 
 
 
