@@ -110,6 +110,10 @@ name ParkingLot
 ```
 (Аналогично выполненна настройка для коммутатора S2)
 
+```
+sh vl
+```
+
 ![image](https://user-images.githubusercontent.com/84719218/165915498-5a72557c-0a1c-4e3a-9f64-5b14c559211a.png)
 
 
