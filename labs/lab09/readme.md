@@ -204,6 +204,12 @@ show interfaces status
 
 a)
 
+```
+show port-security interface f0/6
+```
+
+![image](https://user-images.githubusercontent.com/84719218/165937104-4725ec5a-8a2c-42ff-aca4-bfcc601727b3.png)
+
 
 |              Конфигурация безопасности порта по умолчанию             |
 | :-------------------------------------------------------------------- | 
@@ -236,9 +242,13 @@ c)
 show port-security interface f0/6
 ```
 
+![image](https://user-images.githubusercontent.com/84719218/165937162-259432b9-b80b-4574-a2cf-eb8e3b0367cd.png)
+
 ```
 show port-security address
 ```
+
+![image](https://user-images.githubusercontent.com/84719218/165937308-26277131-316c-4556-88f9-d236945bc929.png)
 
 d)
 
@@ -263,9 +273,13 @@ f)
 show port-security interface f0/18
 ```
 
+![image](https://user-images.githubusercontent.com/84719218/165937835-4b4dcc80-cf76-42e6-a9e4-1a2306b716c5.png)
+
 ```
 show port-security address
 ```
+
+![image](https://user-images.githubusercontent.com/84719218/165937929-9df77fb6-f20a-4acc-b399-112a14e18283.png)
 
 Шаг 5. Реализовать безопасность DHCP snooping.
 
