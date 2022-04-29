@@ -91,6 +91,10 @@ ex
 ```
 (Аналогично выполненна настройка для коммутатора S2)
 
+![image](https://user-images.githubusercontent.com/84719218/165916018-ebeeec19-6c42-48e0-b2df-5b11de01818b.png)
+
+![image](https://user-images.githubusercontent.com/84719218/165916484-d02ce535-4095-4d02-ad5c-d2bc25f1e408.png)
+
 
 Шаг 3. Настроить VLAN 333 с именем Native на S1 и S2.
 
