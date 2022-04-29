@@ -308,6 +308,8 @@ d)
 show ip dhcp snooping
 ```
 
+![image](https://user-images.githubusercontent.com/84719218/165951739-039d167e-6d77-429d-a1f4-e03ec8d9603b.png)
+
 e)
 ```
 ipconfig /release
@@ -318,6 +320,8 @@ f)
 ```
 show ip dhcp snooping binding 
 ```
+
+![image](https://user-images.githubusercontent.com/84719218/165951960-b7ed8b43-f707-4445-b87b-d6a430895558.png)
 
 Шаг 6. Реализация PortFast и BPDU Guard
 
@@ -350,6 +354,8 @@ c)
 ```
 show spanning-tree interface f0/6 detail
 ```
+
+![image](https://user-images.githubusercontent.com/84719218/165952241-edd9e009-9856-418a-aeb1-cd01769ed74a.png)
 
 
 
