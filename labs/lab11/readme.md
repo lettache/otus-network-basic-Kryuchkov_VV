@@ -269,10 +269,104 @@ sh int trunk
 
 ![изображение](https://user-images.githubusercontent.com/84719218/169978568-0d897849-0229-43d7-ad3f-78e9b5556552.png)
 
+Шаг 2. Вручную настроить магистральный интерфейс F0/5 на коммутаторе S1.
+
+a)
+
+```
+conf t
+int f0/5
+switchport mode trunk
+```
+
+```
+switchport trunk native vlan 1000
+```
+
+```
+switchport trunk allowed vlan 20,30,40,999,1000
+end
+```
+
+b)
+
+```
+copy running-config startup-config
+```
+
+c)
+
+```
+sh int trunk
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/169981077-9c374eeb-29e4-485d-962a-b462e82eaa2a.png)
+
+**Часть 4. Настройте маршрутизацию.**
+
+Шаг 1. Настроить маршрутизации между сетями VLAN на R1.
+
+a)
+
+```
+conf t
+int g0/0/1
+no sh
+ex
+```
+
+b)
+
+```
+int g0/0/1.20
+encapsulation dot1Q 20
+ip add 10.20.0.1 255.255.255.0
+ex
+```
+
+```
+int g0/0/1.30
+encapsulation dot1Q 30
+ip add 10.30.0.1 255.255.255.0
+ex
+```
+
+```
+int g0/0/1.40
+encapsulation dot1Q 40
+ip add 10.40.0.1 255.255.255.0
+ex
+```
+
+```
+int g0/0/1.1000
+encapsulation dot1Q 1000 native
+end
+```
+
+```
+sh int g0/0/1.1000
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/169983565-12f28fb4-24da-4c5b-8daa-972cb06b6b1e.png)
+
+c)
+
+```
+conf t
+int loop 1
+ip add 172.16.1.1 255.255.255.0
+end
+```
+
+d)
 
 
+```
+show ip interface brief
+```
 
-
+![изображение](https://user-images.githubusercontent.com/84719218/169983850-e89670ab-6a2b-4e11-a5b1-a5b8b83e7951.png)
 
 
 
