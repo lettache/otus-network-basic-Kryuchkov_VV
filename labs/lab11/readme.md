@@ -453,9 +453,21 @@ ip http authentication local
 | PC-B          | SSH                | 10.20.0.1    |
 | PC-B          | SSH                | 172.16.1.1   |
 
+![изображение](https://user-images.githubusercontent.com/84719218/169991755-91444008-20c1-417b-8f21-a1c9e78f4bec.png)
 
+![изображение](https://user-images.githubusercontent.com/84719218/169991881-85005b26-ae52-47aa-a6b2-f54ff05f1b88.png)
 
+![изображение](https://user-images.githubusercontent.com/84719218/169992054-02a3dc60-0c73-4a8d-86c4-34a7e1cebe22.png)
 
+![изображение](https://user-images.githubusercontent.com/84719218/169992150-268b0d56-af11-43e1-93db-5289d3efe472.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/169992237-2f8b6310-5111-4df0-b768-853df9513f4b.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/169994599-b8c3fa2a-e989-4f8b-9aad-7decbe79bb3c.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/169994775-ac472916-600a-4612-8e2d-a704139d4a57.png)
+
+**Часть 7. Настройка и проверка списков контроля доступа (ACL)**
 
 
 
