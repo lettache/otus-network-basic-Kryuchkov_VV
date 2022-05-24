@@ -386,16 +386,72 @@ ip route 0.0.0.0 0.0.0.0 10.20.0.1
 
 Шаг 1. Настройте все сетевые устройства для базовой поддержки SSH.
 
+a)
 
+```
+conf t
+username SSHadmin privilege 15 password $cisco123!
+```
 
+b)
 
+```
+ip domain-name ccna-lab.com 
+```
 
+c)
 
+```
+crypto key generate rsa
+1024
+```
 
+d)
 
+```
+line vty 0 5
+transport input ssh
+login local
+end
+```
+(Аналогично выполненна настройка для остальных сетевых устройств)
 
+Шаг 2. Включить защищенные веб-службы с проверкой подлинности на R1.
 
+a)
 
+```
+conf t
+ip http secure-server 
+```
+
+b)
+
+```
+ip http authentication local
+```
+
+**Часть 6. Проверка подключения**
+
+Шаг 1. Настройка узлов ПК.
+
+![изображение](https://user-images.githubusercontent.com/84719218/169989500-0616d345-e968-4cdd-b4e0-556562b8f6c7.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/169989793-1abc3546-3f54-44a4-895d-da586faeec49.png)
+
+Шаг 2. Выполнить следующие тесты. Эхозапрос должен пройти успешно.
+
+| От            | Протокол           | Назначение   |
+| :-------------|:------------------ | :----------- |
+| PC-A          | Ping               | 10.40.0.10   |
+| PC-A          | Ping               | 10.20.0.1    |
+| PC-B          | Ping               | 10.30.0.10   |
+| PC-B          | Ping               | 10.20.0.1    |
+| PC-B          | Ping               | 172.16.1.1   |
+| PC-B          | HTTPS              | 10.20.0.1    |
+| PC-B          | HTTPS              | 172.16.1.1   |
+| PC-B          | SSH                | 10.20.0.1    |
+| PC-B          | SSH                | 172.16.1.1   |
 
 
 
