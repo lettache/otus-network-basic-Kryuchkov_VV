@@ -127,7 +127,10 @@ copy running-config startup-config
 
 Шаг 1. Создать сети VLAN на коммутаторах.
 
+a)
+
 ```
+conf t
 vlan 20
 name Management
 ex
@@ -156,6 +159,143 @@ vlan 1000
 name Native
 ex
 ```
+
+(Аналогично выполненна настройка для коммутатора S2)
+
+b)
+
+```
+int vlan 20
+ip add 10.20.0.2 255.255.255.0
+ip default-gateway 10.20.0.1
+```
+ 
+```
+int vlan 20
+ip add 10.20.0.3 255.255.255.0
+ip default-gateway 10.20.0.1
+```
+
+c)
+
+```
+conf t
+int range F0/2-4, F0/7-24, g0/1-2
+switchport mode access
+switchport access vlan 999
+ex
+int vlan 999
+sh
+```
+
+```
+conf t
+int range F0/2-4, F0/6-17, f0/19-24, g0/1-2
+switchport mode access
+switchport access vlan 999
+ex
+int vlan 999
+sh
+```
+
+Шаг 2. Назначить сети VLAN соответствующим интерфейсам коммутатора.
+
+a)
+
+```
+int f0/5
+switchport mode access
+switchport access vlan 20
+ex
+```
+
+```
+int f0/6
+switchport mode access
+switchport access vlan 30
+ex
+```
+
+```
+int f0/18
+switchport mode access
+switchport access vlan 40
+end
+```
+
+b)
+
+```
+show vlan brief
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/169973815-a37e907d-0a9d-49cf-9bee-b85dd77644ad.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/169973913-7b4e4ecf-cce2-4d3a-a64d-202286333cf8.png)
+
+**Часть 3. ·Настроить транки (магистральные каналы).**
+
+Шаг 1. Вручную настроить магистральный интерфейс F0/1.
+
+a)
+
+```
+conf t
+int f0/1
+switchport mode trunk
+```
+
+b)
+
+```
+switchport trunk native vlan 1000
+```
+
+c)
+
+```
+switchport trunk allowed vlan 20,30,40,999,1000
+end
+```
+(Аналогично выполненна настройка для коммутатора S2)
+
+d)
+
+```
+sh int trunk
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/169978469-8fa90442-efe1-41e4-86d9-e8dea4f2ee72.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/169978568-0d897849-0229-43d7-ad3f-78e9b5556552.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
