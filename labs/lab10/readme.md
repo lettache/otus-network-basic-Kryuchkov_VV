@@ -131,8 +131,65 @@ router-id 1.1.1.1
 (Аналогично выполненна настройка для маршрутизатора R2)
 
 ```
+network 10.53.0.0 0.0.0.255 area 0
+```
+(Аналогично выполненна настройка для маршрутизатора R2)
 
 ```
+network 172.16.1.0 0.0.0.255 area 0
+end
+```
+
+```
+sh ip ospf int
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/170275805-dc115341-9153-4f23-b735-8bfdacfb920e.png)
+
+```
+show ip route ospf
+```
+
+```
+ping 192.168.1.1
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/170278276-e3df4deb-a14a-446d-8081-f46ecd5fc9c9.png)
+
+**Часть 3. Оптимизация и проверка конфигурации OSPFv2 для одной области**
+
+Шаг 1. Реализация различных оптимизаций на каждом маршрутизаторе.
+
+```
+conf t
+int g0/0/1
+ip ospf priority 50
+```
+
+```
+ip ospf hello-interval 30
+```
+(Аналогично выполненна настройка для маршрутизатора R2)
+
+```
+ip route 0.0.0.0 0.0.0.0 loopback 1
+```
+
+
+
+
+
+```
+conf t
+router ospf 56
+auto-cost reference-bandwidth 10000
+end
+clear ip ospf process
+```
+(Аналогично выполненна настройка для маршрутизатора R2)
+
+
+
 
 
 
