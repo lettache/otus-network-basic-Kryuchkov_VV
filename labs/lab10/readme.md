@@ -188,19 +188,42 @@ clear ip ospf process
 ```
 (Аналогично выполненна настройка для маршрутизатора R2)
 
+```
+conf t
+rout ospf 56
+network 192.168.1.1 0.0.0.255 area 0
+end
+```
 
+```
+conf t
+rout ospf 56
+passive-interface gigabitEthernet 0/0/1
+```
 
+```
+clear ip ospf process
+```
 
+Шаг 2. Убедитесь, что оптимизация OSPFv2 реализовалась.
 
+```
+show ip ospf interface g0/0/1
+```
 
+![Uploading изображение.png…]()
 
+```
+show ip route ospf
+```
 
+```
+show ip route ospf
+```
 
-
-
-
-
-
+```
+ping 172.16.1.1
+```
 
 
 
