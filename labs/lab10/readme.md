@@ -51,6 +51,7 @@ end
 conf t
 line vty 0 4
 enable secret cisco
+login
 ```
 
 ```
@@ -89,6 +90,7 @@ end
 conf t
 line vty 0 4
 enable secret cisco
+login
 ```
 
 ```
@@ -168,16 +170,13 @@ ip ospf priority 50
 
 ```
 ip ospf hello-interval 30
+ip ospf dead-interval 30
 ```
 (Аналогично выполненна настройка для маршрутизатора R2)
 
 ```
 ip route 0.0.0.0 0.0.0.0 loopback 1
 ```
-
-
-
-
 
 ```
 conf t
@@ -198,7 +197,7 @@ end
 ```
 conf t
 rout ospf 56
-passive-interface gigabitEthernet 0/0/1
+passive-interface loopback 1
 ```
 
 ```
