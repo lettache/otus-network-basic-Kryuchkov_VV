@@ -241,23 +241,36 @@ ntp master 2
 show clock
 ```
 
+![image](https://user-images.githubusercontent.com/84719218/172799296-0104a346-6659-4876-b460-4984bb926456.png)
+
+![image](https://user-images.githubusercontent.com/84719218/172799380-fd20c80d-3222-46ca-a4bf-932e86f6fab7.png)
+
 | Дата          | Время              | Часовой пояс    |
 | :-------------|:------------------ | :---------------|
 | Mon Mar 1 1993| 1:8:35.170         | -               |
+| Mon Mar 1 1993| 1:28:34.723        | -               |
 
+```
+conf t
+ntp server 10.22.0.1
+ntp update-calendar
+```
+(Аналогично выполненна настройка для коммутатора S2)
 
+Шаг 5. Проверить настройку NTP.
 
+```
+sh ntp status
+```
 
+![image](https://user-images.githubusercontent.com/84719218/172801259-4caed140-ae3e-4402-b0c7-abd71b2c2b96.png)
 
+![image](https://user-images.githubusercontent.com/84719218/172801353-c0de7a23-0d02-451d-865a-fe3a3fd4c4a0.png)
 
+```
+sh clock
+```
 
+![image](https://user-images.githubusercontent.com/84719218/172802425-1f9bb633-ffa3-47d2-84c9-5f078ad1de91.png)
 
-
-
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/84719218/172802490-f201e160-3925-4e95-be86-6840a5e7fb80.png)
