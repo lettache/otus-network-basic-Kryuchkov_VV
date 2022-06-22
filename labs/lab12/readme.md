@@ -293,43 +293,14 @@ show ip nat translations
 
 ![изображение](https://user-images.githubusercontent.com/84719218/174979368-65d12bec-2dc0-456a-bc2a-7b8e039adf4f.png)
 
+```
+ping 209.165.200.229
+```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174979811-4249c932-0311-4181-acd3-6b7a57314595.png)
 
+```
+show ip nat translations
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![изображение](https://user-images.githubusercontent.com/84719218/174979993-99de35e5-ec8f-4faf-9908-b30a48ad4d14.png)
