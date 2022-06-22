@@ -219,20 +219,79 @@ show ip nat translations
 
 ![изображение](https://user-images.githubusercontent.com/84719218/174972023-8105ca2a-201a-4b97-badd-e8ac1b1c52ed.png)
 
+```
+clear ip nat translations * 
+clear ip nat statistics  
+```
 
+Шаг 4. На R1 удалить команды преобразования nat pool.
 
+```
+conf t
+no ip nat inside source list 1 pool PUBLIC_ACCESS overload 
+no ip nat pool PUBLIC_ACCESS
+```
 
+Шаг 5. Добавить команду PAT overload, указав внешний интерфейс.
 
+```
+ip nat inside source list 1 interface g0/0/0 overload 
+```
 
+Шаг 6. Протестировать и проверить конфигурацию. 
 
+```
+ping 209.165.200.1
+```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174975303-ac98ea4b-7f5f-4d50-99f8-8ffea8c740c8.png)
 
+```
+show ip nat translations
+```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174976086-101b207b-a519-49e4-979d-bc36872c331d.png)
 
+```
+ping -t 209.165.200.1
+```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174976413-fca01ffe-bcf5-4941-a450-922ed78194a3.png)
 
+![изображение](https://user-images.githubusercontent.com/84719218/174977948-3c28f7c8-4778-42ac-abef-86208ec948b4.png)
 
+![изображение](https://user-images.githubusercontent.com/84719218/174978040-dd346965-a0d1-499f-9ce2-f8c4f64837c9.png)
 
+```
+show ip nat translations
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/174978193-6ec0b5f5-68c1-4fe0-99b2-6e9eb5b14940.png)
+
+**Часть 4. Настройка и проверка статического NAT для IPv4.**
+
+Шаг 1. На R1 очистить текущие трансляции и статистику.
+
+```
+clear ip nat translation * 
+clear ip nat statistics  
+```
+
+Шаг 2. На R1 настроить команду NAT, необходимую для статического сопоставления внутреннего адреса с внешним адресом.
+
+```
+conf t
+ip nat inside source static 192.168.1.2 209.165.200.229 
+ex
+```
+
+Шаг 3. Протестировать и проверить конфигурацию.
+
+```
+show ip nat translations
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/174979368-65d12bec-2dc0-456a-bc2a-7b8e039adf4f.png)
 
 
 
