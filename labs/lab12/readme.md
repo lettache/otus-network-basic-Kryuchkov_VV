@@ -184,12 +184,40 @@ end
 Шаг 2. Проверить конфигурацию. 
 
 ```
+ping 209.165.200.1
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/174970978-0b44265d-0360-42c2-8de6-6b73edfc3549.png)
+
+```
 show ip nat translations
 ```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174970794-f6459e61-be5e-48e0-960a-c7993453757f.png)
 
+```
+ping 209.165.200.1
+```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174971294-01148cdf-188a-42e2-9a53-e15cd4c66e36.png)
 
+```
+show ip nat translations
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/174971407-713a2b12-489b-42fb-9613-77debaf136c6.png)
+
+```
+ping -t 209.165.200.1
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/174971781-192308ac-85bf-4569-857f-4c4f96f7c405.png)
+
+```
+show ip nat translations
+```
+
+![изображение](https://user-images.githubusercontent.com/84719218/174972023-8105ca2a-201a-4b97-badd-e8ac1b1c52ed.png)
 
 
 
