@@ -153,11 +153,13 @@ sh ip ospf int
 show ip route ospf
 ```
 
+![изображение](https://user-images.githubusercontent.com/84719218/174987840-d7368c49-76dd-4399-98a0-d12e9275e42a.png)
+
 ```
 ping 192.168.1.1
 ```
 
-![изображение](https://user-images.githubusercontent.com/84719218/170278276-e3df4deb-a14a-446d-8081-f46ecd5fc9c9.png)
+![изображение](https://user-images.githubusercontent.com/84719218/174988067-d710ab53-137c-4f15-884e-91ab5ebbb35c.png)
 
 **Часть 3. Оптимизация и проверка конфигурации OSPFv2 для одной области**
 
