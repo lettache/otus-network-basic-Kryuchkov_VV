@@ -213,7 +213,7 @@ clear ip ospf process
 show ip ospf interface g0/0/1
 ```
 
-![изображение](https://user-images.githubusercontent.com/84719218/170653004-af721db0-7697-4e2d-ad9e-cd09ac6b2cf8.png)
+![изображение](https://user-images.githubusercontent.com/84719218/174988920-5894cc9a-8a06-476e-b1d2-3a4315a6682c.png)
 
 ```
 show ip route ospf
@@ -225,7 +225,7 @@ show ip route ospf
 show ip route ospf
 ```
 
-![изображение](https://user-images.githubusercontent.com/84719218/170653233-5a330425-5f75-4c80-949d-16884aef37a9.png)
+![изображение](https://user-images.githubusercontent.com/84719218/174989085-d1e6a8c2-2c24-4742-b41e-e26e7eb709bd.png)
 
 ```
 ping 172.16.1.1
