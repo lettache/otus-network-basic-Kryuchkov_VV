@@ -179,6 +179,9 @@ ip ospf dead-interval 120
 
 ```
 ip route 0.0.0.0 0.0.0.0 loopback 1
+router ospf 56
+default-information originate
+end
 ```
 
 ```
