@@ -221,11 +221,13 @@ show ip route ospf
 
 ![изображение](https://user-images.githubusercontent.com/84719218/174989085-d1e6a8c2-2c24-4742-b41e-e26e7eb709bd.png)
 
+![изображение](https://user-images.githubusercontent.com/84719218/175000096-bd46d919-3b99-4e5a-8c1a-e8375fe71380.png)
+
 ```
 ping 172.16.1.1
 ```
 
-![изображение](https://user-images.githubusercontent.com/84719218/170653421-5592615e-f5cb-4d63-9d74-d31c792a8753.png)
+![изображение](https://user-images.githubusercontent.com/84719218/174999995-3a04d378-a671-4cdc-b208-a344e88515af.png)
 
 
 
