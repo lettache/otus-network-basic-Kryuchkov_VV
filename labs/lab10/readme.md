@@ -219,12 +219,6 @@ show ip ospf interface g0/0/1
 show ip route ospf
 ```
 
-![изображение](https://user-images.githubusercontent.com/84719218/170653271-f6c0be14-534b-40e3-88e8-346e5ab8411d.png)
-
-```
-show ip route ospf
-```
-
 ![изображение](https://user-images.githubusercontent.com/84719218/174989085-d1e6a8c2-2c24-4742-b41e-e26e7eb709bd.png)
 
 ```
