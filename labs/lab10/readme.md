@@ -125,6 +125,7 @@ ex
 ```
 conf t
 router ospf 56
+no passive-interface g0/0/1
 ```
 
 ```
@@ -170,7 +171,7 @@ ip ospf priority 50
 
 ```
 ip ospf hello-interval 30
-ip ospf dead-interval 30
+ip ospf dead-interval 120
 ```
 (Аналогично выполненна настройка для маршрутизатора R2)
 
