@@ -475,7 +475,61 @@ ip http authentication local
 
 Шаг 1. Проанализировать требования к сети и политике безопасности для планирования реализации ACL.
 
+![изображение](https://user-images.githubusercontent.com/84719218/175299828-30393d4d-29af-4234-8fe7-c7ba815cba6a.png)
+
 Шаг 2. Разработка и применение расширенных списков доступа, которые будут соответствовать требованиям политики безопасности.
+
+```
+conf t
+ip access-list extended 130
+deny icmp any 10.40.0.0 0.0.0.255
+permit any any
+ex
+ip access-list extended 140
+deny tcp any 10.20.0.0 0.0.0.255 eq 22
+deny tcp any 10.20.0.0 0.0.0.255 eq 80
+deny tcp any 10.20.0.0 0.0.0.255 eq 443
+deny tcp any host 10.30.0.1 eq 80
+deny tcp any host 10.30.0.1 eq 443
+deny tcp any host 10.40.0.1 eq 80
+deny tcp any host 10.40.0.1 eq 443
+deny icmp any 10.20.0.0 0.0.0.255
+deny icmp any 10.30.0.0 0.0.0.255
+permit ip any any
+ex
+int g0/0/1.30
+ip access-group 130 in
+ex
+int g0/0/1.40
+ip access-group 140 in
+ex
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
