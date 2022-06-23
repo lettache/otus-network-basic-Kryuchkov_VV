@@ -505,6 +505,25 @@ ip access-group 140 in
 ex
 ```
 
+Шаг 3. Убедиться, что политики безопасности применяются развернутыми списками доступа.
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301042-db1df869-e074-4268-9b8e-65dfa5d11cce.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301151-3c15cbb3-78ba-4412-a7b4-e2704fd61505.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301287-a85c7014-8239-4d0f-b316-03d4fba49d83.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301445-0a1beb78-4b57-48f8-bf5c-a139335bebac.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301543-f2735fb7-5f16-4004-8b8e-552c0b2a3937.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301680-9186c00e-60df-4bba-888b-7d77cbdf3493.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301811-3e9ecce2-49ad-4e58-82b3-890bc5800fd4.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175301914-c2b651fc-97d0-4bb7-be7d-f0e8107e7029.png)
+
+![изображение](https://user-images.githubusercontent.com/84719218/175302007-7e40187b-9b3d-43be-9221-bdaa6baafb2e.png)
 
 
 
